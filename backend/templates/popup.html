@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; 
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .popup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .popup {
+      width: 300px;
+      padding: 20px;
+      background: linear-gradient(135deg, #ff8c00, #ff6347); /* Gradient background in orange */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 80px; /* Adjust the size according to your logo */
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden; /* Ensure the image stays within the circle */
+      margin: 0 auto;
+      background-color: #201c1c; /* Black circle for the logo */
+    }
+
+    .logo img {
+      width: 100%; /* Make the image fill the circle */
+      height: auto;
+      border-radius: 50%;
+    }
+
+    h2, p {
+      color: #111010; /* Black text */
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #f2f4f6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup">
+      <div class="logo-container">
+        <div class="logo">
+          <!-- Replace the placeholder image URL with your actual logo image URL -->
+          <img src="icon.png" alt="Logo">
+        </div>
+      </div>
+      <h2>Your Extension Name</h2>
+      <p>This is a sample extension popup.</p>
+      <p></p>
+      <p></p>
+        <button><a href="form.html" target="">Check Reviews</a></button>
+    </div>
+  </div>
+</body>
+</html>
