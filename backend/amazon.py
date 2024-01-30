@@ -10,7 +10,9 @@ async def fetch(session, url):
         return await response.text()
 
 async def main():
-    urls = [f"https://www.amazon.in/Apple-iPhone-Pro-Max-256/product-reviews/B0CHX1K2ZC/ref=cm_cr_getr_d_paging_btm_prev_1?ie=UTF8&reviewerType=all_reviews&pageNumber={i}" for i in range(1, 11)]
+    u = "https://www.amazon.in/Apple-iPhone-Pro-Max-256/product-reviews/B0CHX1K2ZC/ref=cm_cr_getr_d_paging_btm_prev_1?ie=UTF8&reviewerType=all_reviews"
+    u += "&pageNumber={i}"
+    urls = [(u) for i in range(1, 11)]
     l1 = []
     l2 = []
     new_data = {}
