@@ -1,15 +1,19 @@
-from flask import Flask, request, render_template 
+from flask import Flask, request, url_for, redirect, render_template
+import req 
 import pickle as pkl
-import numpy as np
-import string
+import numpy as numpy
+import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
+import warnings, string
 from nltk.corpus import stopwords
-import requests
+import numpy as np
+import aiohttp
+import asyncio
 from bs4 import BeautifulSoup
+import json
 
 def extract():
-    url = 'https://www.amazon.in/Apple-iPhone-Pro-Max-256/product-reviews/B0CHX1K2ZC/ref=cm_cr_getr_d_paging_btm_prev_1?ie=UTF8&reviewerType=all_reviews'
-
+    url = 'https://www.amazon.in/Amozo-Cover-iPhone-Polycarbonate-Transparent/product-reviews/B09J2MM5C6/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews@pagereview=1'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136'}
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
@@ -36,7 +40,7 @@ def hello_world():
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
     bow_transformer = CountVectorizer(analyzer=text_process)
-    url = request.form.get('url')  # Assuming 'url' is the name of the input field in your form
+    # url = request.form.get('url')  # Assuming 'url' is the name of the input field in your form
     reviews = extract()
 
     print(reviews)

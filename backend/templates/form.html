@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trust Torch</title>
     <style>
+        *{
+            overflow: hidden;
+        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -15,15 +18,15 @@
         }
 
         header {
-            background-color: #3498db;
+            background-color: #ff8800;
             color: #fff;
             text-align: center;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         section {
             margin: 2rem;
-            padding: 2rem;
+            padding: 1rem;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -37,6 +40,7 @@
         label {
             margin-bottom: 0.5rem;
             color: #333;
+            font-size: 15px;
         }
 
         input, textarea {
@@ -48,7 +52,7 @@
         }
 
         input[type="submit"] {
-            background-color: #3498db;
+            background-color: #ff8800;
             color: #fff;
             padding: 0.5rem 1rem;
             cursor: pointer;
@@ -57,27 +61,29 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #2980b9;
+            background-color: #ff8800;
         }
+        
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Trust Torch</h1>
-        <p>Simplified the verification of reviews</p>
+        <img src="logo2.png" height="100px">
     </header>
 
     <section>
         <form action='/predict' method="post">
-            <label for="review">Name:</label>
-            <input type="text" id="review" name="review" required>
+            <label for="url">Link :</label>
+            <input type="url" id="url" name="url" required>
 
-            <input type="submit" value="Submit">
+            <button><a href="http://127.0.0.1:5000/" target="">Submit</a></button>
         </form>
     </section>
+    <div class="prediction">
+        {{pred}}
 
-    {{pred}}
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust Torch</title>
+    <style>
+        *{
+            overflow: hidden;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff8800;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        section {
+            margin: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #ff8800;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff8800;
+        }
+        #trus {
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }        
+        #torch {
+            color: black;
+            font-size: 50px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }    
+        #ext {
+            color: black;
+            font-size: 30px;
+            font-style: italic;
+            font-weight: bold;
+            /* letter-spacing: 2px; */
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }    
+        .prediction {
+            margin-left: 10px;
+            padding: 10px;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            /* letter-spacing: 2px; */
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        }      
+    </style>
+</head>
+<body>
+
+    <header>
+        <span id="trus">trus</span>
+        <span id="torch">Torch</span>
+        <span id="ext">.ext</span>
+        
+    </header>
+
+    <section>
+        <form action='/predict' method="post">
+            <label for="url">Link :</label>
+            <input type="url" id="url" name="url" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+    <div class="prediction">
+        {{pred}}
+    </div>
+
+</body>
+</html>

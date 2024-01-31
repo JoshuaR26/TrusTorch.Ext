@@ -8,7 +8,7 @@
       font-family: Arial, sans-serif;
       margin: 0; 
       padding: 0;
-      background-color: #f4f4f4;
+      background: linear-gradient(180deg, rgb(235, 235, 235), #cacaca); 
     }
 
     .popup-container {
@@ -19,15 +19,17 @@
     }
 
     .popup {
-      width: 300px;
-      padding: 20px;
-      background: linear-gradient(135deg, #ff8c00, #ff6347); /* Gradient background in orange */
+      width: 300vh;
+      height: 100vh;
+      background: linear-gradient(180deg, #ffb445, #ff6200); /* Gradient background in orange */
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       text-align: center;
+      overflow: hidden;
     }
 
     .logo-container {
+      margin-top: 50px;
       margin-bottom: 20px;
     }
 
@@ -37,7 +39,7 @@
       border-radius: 50%;
       overflow: hidden; /* Ensure the image stays within the circle */
       margin: 0 auto;
-      background-color: #201c1c; /* Black circle for the logo */
+      background-color: #ffffff; /* Black circle for the logo */
     }
 
     .logo img {
@@ -49,10 +51,13 @@
     h2, p {
       color: #111010; /* Black text */
       margin-bottom: 10px;
+      font-size: large;
+      font-weight: bold;
     }
 
     button {
       padding: 10px 20px;
+      font-weight: bolder;
       background-color: #f2f4f6;
       color: #fff;
       border: none;
@@ -62,12 +67,13 @@
     }
 
     a {
-      color: #007bff;
+      color: #000000;
+      font-size: larger;
       text-decoration: none;
     }
   </style>
 </head>
-<body>
+<body bgcolor="black">
   <div class="popup-container">
     <div class="popup">
       <div class="logo-container">
@@ -76,11 +82,10 @@
           <img src="icon.png" alt="Logo">
         </div>
       </div>
-      <h2>Your Extension Name</h2>
-      <p>This is a sample extension popup.</p>
+      <img src="logo2.png" height="125px">
       <p></p>
       <p></p>
-        <button><a href="form.html" target="">Check Reviews</a></button>
+        <button><a href="http://127.0.0.1:5000/" target="">Check Reviews</a></button>
     </div>
   </div>
 </body>
