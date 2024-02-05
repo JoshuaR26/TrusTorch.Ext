@@ -2,14 +2,13 @@ from flask import Flask, request, render_template
 import pickle as pkl
 import numpy as np
 import string
-import random
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 import requests
 from bs4 import BeautifulSoup
 
 def extract():
-    url = 'https://www.amazon.in/Apple-iPhone-Pro-Max-256/product-reviews/B0CHX1K2ZC/ref=cm_cr_getr_d_paging_btm_prev_1?ie=UTF8&reviewerType=all_reviews'
+    url = 'https://www.amazon.in/Jockey-Cotton-Boxer-8008_Large_Charcoal-Melange/dp/B01ENBZP1A/ref=sr_1_19?keywords=jockey%27&sr=8-19'
 
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136'}
     response = requests.get(url, headers=headers)
@@ -32,7 +31,7 @@ model = pkl.load(open('svc_model.pkl', 'rb'))
 
 @app.route('/')
 def hello_world():
-    return render_template('form2.html')
+    return render_template('form.html')
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
@@ -42,15 +41,13 @@ def predict():
 
     print(reviews)
     
-    # predicted = model.predict(np.array(reviews))
+    predicted = model.predict(np.array(reviews))
     
-    # output = np.unique(predicted, return_counts=True)
-    # total_reviews = len(reviews)
-    # positive_percentage = (output[1][1] / total_reviews) * 100 if total_reviews > 0 else 0
+    output = np.unique(predicted, return_counts=True)
+    total_reviews = len(reviews)
+    positive_percentage = (output[1][1] / total_reviews) * 100 if total_reviews > 0 else 0
 
-    if 'https' in url:
-        return render_template('form2.html', pred=f'{np.round(random.uniform(60, 100),4)}%', bhai="Your Forest is Safe for now")
-    return render_template('form2.html', pred='Positive Review Percentage: Not Valid URL', bhai="Your Forest is Safe for now")
+    return render_template('form.html', pred=f'Positive Review Percentage: {positive_percentage:.2f}%', bhai="Your Forest is Safe for now")
 
 if __name__ == '__main__':
     app.run(debug=True)
